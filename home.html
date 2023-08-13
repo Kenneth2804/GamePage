@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Esta es mi página de Juegos</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<style>
+	
+	body{
+		font-family: Arial, sans-serif;
+		margin: 0;
+		padding: 0;
+	}
+
+
+.navbar{
+	background-color: #333;
+	color: white;
+	padding: 10px 0;
+	text-align: center;
+}
+
+.navbar a{
+	color: white;
+	margin: 0 15px;
+	text-decoration: none;
+}
+.navbar a:hover{
+	color: red;
+}
+
+.card{
+	border: none;
+	text-align: center;
+	background-color: #ccc;
+	border-radius: 10px;
+	padding: 15px;
+	box-shadow: 0 2px 4px rgba(0,0,0,1)
+}
+.card img{
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+	border-radius: 10px;
+}
+
+.footer{
+	background-color: #333;
+	color: white;
+	padding: 10px 0;
+	text-align: center;
+}
+.footer p{
+
+	margin: 0;
+}
+
+.cart-overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	justify-content: center;
+	align-items: center;
+	display: none;
+	z-index: 2;
+}
+.cart-modal{
+	background-color: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.cart-modal img {
+	max-width: 100px;
+	height: auto;
+}
+
+#cartModal .cart-items img{
+	max-width: 150px;
+	height: auto;
+}
+</style>
+
+</head>
+
+
+
+<body>
+
+<div class="navbar">
+	<h1>Nombre del Sitio</h1>
+	<nav>
+		<a href="#">Inicio</a>
+		<a href="#">Juegos</a>
+		<a href="#cartModal" data-toggle="modal">Carrito</a>
+		<a href="#">Contacto</a>
+	</nav>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		<!-- Juego 1 -->
+		<div class="col-md-4">
+			<div class="card">
+				<img src="j1.png" alt="juego 1">
+				<a href="https://pong-kohl.vercel.app/"><h2>Pong Game</h2></a>
+				<p>Descripción esta bien mamalón este juego</p>
+				<a class="add-to-cart-btn">Añadir al Carrito</a>
+			</div>
+		</div>
+				<!-- Juego 2 -->
+		<div class="col-md-4">
+			<div class="card">
+				<img src="j2.png" alt="juego 1">
+				<a href="https://snakegame-sage.vercel.app/"><h2>Snake Game</h2></a>
+				<p>Descripción esta bien mamalón este juego</p>
+				<a class="add-to-cart-btn">Añadir al Carrito</a>
+			</div>
+		</div>
+
+		<!-- Juego 3 -->
+		<div class="col-md-4">
+			<div class="card">
+				<img src="j3.png" alt="juego 1">
+				<a href="https://momorama.vercel.app/"><h2>Memorama Game</h2></a>
+				<p>Descripción esta bien mamalón este juego</p>
+				<a class="add-to-cart-btn">Añadir al Carrito</a>
+			</div>
+		</div>
+
+		<!-- Juego 4 -->
+		<div class="col-md-4">
+			<div class="card">
+				<img src="j4.png" alt="juego 1">
+				<a href="https://el-ahorcado-omega.vercel.app/"><h2>Ahorcado Game</h2></a>
+				<p>Descripción esta bien mamalón este juego</p>
+				<a class="add-to-cart-btn">Añadir al Carrito</a>
+			</div>
+		</div>
+
+		<!-- Juego 5 -->
+		<div class="col-md-4">
+			<div class="card">
+				<img src="j5.png" alt="juego 1">
+				<a href="https://tiktaktoe-jade.vercel.app/"><h2>Tik Tak Toe Game</h2></a>
+				<p>Descripción esta bien mamalón este juego</p>
+				<a class="add-to-cart-btn">Añadir al Carrito</a>
+			</div>
+		</div>
+
+		<!-- Juego 6 -->
+		<div class="col-md-4">
+			<div class="card">
+				<img src="j6.png" alt="juego 1">
+				<a href="https://car-game-blush.vercel.app/"><h2>Car Game</h2></a>
+				<p>Descripción esta bien mamalón este juego</p>
+				<a class="add-to-cart-btn">Añadir al Carrito</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<div class="cart-overlay" id="cartOverlay">
+	<div class="cart-modal">
+		<h2>Producto Añadido ✅</h2>
+
+		<button id="close-cart-btn">Cerrar</button>
+	</div>
+</div>
+
+    <div id="cartModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Carrito de Compras</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="cart-items">
+                        <!-- Aquí se mostrarán los productos agregados -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <a href="https://www.buymeacoffee.com/Licenciado28"><button type="button" class="btn btn-primary">Comprar</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<div class="footer">
+	<p>Derechos de autor © 2023 Nombre del Sitio. Todos los derechos reservados.</p>
+</div>
+
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+    const cartItemsListModal = document.querySelector('#cartModal .cart-items');
+    const cartOverlay = document.querySelector('.cart-overlay');
+    const closeCartButton = document.getElementById('close-cart-btn');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // ... (código para agregar elementos al carrito)
+
+            cartOverlay.style.display = 'flex';
+
+            // Cierra el carrito automáticamente después de 3 segundos
+            setTimeout(() => {
+                cartOverlay.style.display = 'none';
+            }, 3000);
+        });
+    });
+
+    closeCartButton.addEventListener('click', () => {
+        cartOverlay.style.display = 'none';
+    });
+
+
+
+
+
+    function removeCartItem(cartItem) {
+        cartItemsListModal.removeChild(cartItem);
+    }
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const card = button.closest('.card');
+            const productName = card.querySelector('h2').textContent;
+            const productImage = card.querySelector('img').src;
+
+            const cartItem = document.createElement('li');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="${productImage}" alt="${productName}">
+                <h3>${productName}</h3>
+                <button class="btn btn-danger btn-sm delete-item">Eliminar</button>
+            `;
+
+            cartItem.querySelector('.delete-item').addEventListener('click', () => {
+                removeCartItem(cartItem);
+            });
+
+            cartItemsListModal.appendChild(cartItem);
+            cartOverlay.style.display = 'flex';
+        });
+    });
+
+    closeCartButton.addEventListener('click', () => {
+        cartOverlay.style.display = 'none';
+    });
+
+
+
+
+    openCartLink.addEventListener('click', () => {
+        cartItemsListModal.innerHTML = '';
+
+        const cartItems = document.querySelectorAll('.cart-item');
+        cartItems.forEach(cartItem => {
+            const clonedCartItem = cartItem.cloneNode(true);
+            cartItemsListModal.appendChild(clonedCartItem);
+        });
+    });
+
+    closeCartButton.addEventListener('click', () => {
+        cartOverlay.style.display = 'none';
+    });
+
+    // Aquí puedes agregar más funcionalidad para el botón de compra si 
+});
+
+    </script>
+
+</body>
+</html>

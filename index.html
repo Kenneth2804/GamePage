@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Esta es mi página de Juegos</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<style>
+	body, html{
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		font-family: Arial, sans-serif;
+	}
+
+	.container{
+		position: relative;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+.backgrund-image{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url("fondo1.jpg");
+	background-size: cover;
+	background-position: center;
+	opacity: 0.7;
+	z-index: -1;
+}
+
+.content{
+	position: relative;
+	background-color: rgba(0,0,0,0.5);
+	color: white;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+	transition: background-color 0.3s
+}
+.content:hover{
+	background-color: black
+}
+
+.overlay{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 10px;
+	z-index: -1;
+}
+.content-inner{
+	position: relative;
+	z-index: 1;
+}
+
+.enter-button{
+	display: inline-block;
+	background-color: gray;
+	color: white;
+	text-decoration: none;
+	padding: 10px 20px;
+	border-radius: 8px;
+	margin-top: 20px;
+	font-weight: bold;
+
+}
+.loader-container{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	display: none;
+}
+.loader{
+	border: 5px solid #f3f3f3;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	animation: spin 1s linear infinite;
+}
+@keyframes spin{
+	0%{ transform: rotate(0deg); }
+	100%{ transform: rotate(360deg); }
+
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+
+<div class="container">
+	<div class="backgrund-image"></div>
+	<div class="content">
+		<div class="overlay"></div>
+		<div class="content-inner">
+			<h1>Bienvenido a Mi Sitio Web</h1>
+			<p>Explora todo lo que tenemos para ofrecer.</p>
+			<a href="home.html" class="enter-button">Entrar</a>
+		</div>
+	</div>
+</div>
+
+<div class="loader-container" id="loaderContainer">
+	<img src="load.gif" alt="Cargando..." class="loader-gif">
+</div>
+
+<script>
+const enterButton = document.querySelector('.enter-button');
+const loaderContainer = document.getElementById('loaderContainer');
+const loaderGif = document.querySelector('.loader-gif');
+
+enterButton.addEventListener('click', (event) =>{
+
+event.preventDefault();
+
+ loaderContainer.style.display = 'flex';
+
+setTimeout(() =>{
+
+	loaderContainer.style.display = 'none';
+	
+	window.location.href = 'home.html';
+},3000)
+
+});
+
+enterButton.addEventListener('mouseover', ()=>{
+	enterButton.style.transform = 'scale(1.6)';
+});
+
+enterButton.addEventListener('mouseout', ()=>{
+	enterButton.style.transform = 'scale(1)';
+});
+
+
+
+
+</script>
+
+
+</body>
+</html>
